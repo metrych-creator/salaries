@@ -1,0 +1,3 @@
+NUTS.xlsx filter=lfs diff=lfs merge=lfs -text
+allCountries.txt filter=lfs diff=lfs merge=lfs -text
+geonames_gb.csv filter=lfs diff=lfs merge=lfs -text
