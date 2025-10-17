@@ -2,17 +2,17 @@ import torch
 from torch import nn
 
 class MultimodalRegressor(nn.Module):
-    def __init__(self, text_dim, tab_dim, hidden_dim=256):
+    def __init__(self, text_dim, tab_dim, dropout=0.3, hidden_dim=128):
         super().__init__()
         self.text_encoder = nn.Sequential(
             nn.Linear(text_dim, hidden_dim),
             nn.ReLU(),
-            nn.Dropout(0.3)
+            nn.Dropout(dropout)
         )
         self.tab_encoder = nn.Sequential(
             nn.Linear(tab_dim, hidden_dim // 2),
             nn.ReLU(),
-            nn.Dropout(0.3)
+            nn.Dropout(dropout)
         )
         # oncatenate
         self.fusion = nn.Sequential(
