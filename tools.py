@@ -133,3 +133,18 @@ def generate_best_trial_plots() -> None:
 
                 plot_loss_function(train_loss, test_loss, experiment_dir)
                 print(f"GENERATED loss plot for experiment: {item}")
+
+
+def plot_r2(r2, experiment_name='regression') -> None:
+    plt.figure(figsize=(8, 6))
+    plt.plot(train_loss, label='R^2')         
+    plt.title('R^2')
+    plt.xlabel('Epochs')
+    plt.ylabel('R^2')
+    
+    # saving
+    os.makedirs(f'logs/{experiment_name}', exist_ok=True)
+    plot_path = os.path.join(f"logs/{experiment_name}/", "loss.png")
+    plt.savefig(plot_path, dpi=300, bbox_inches='tight')
+    plt.show()
+    plt.close()
