@@ -14,7 +14,7 @@ class MultimodalRegressor(nn.Module):
             nn.ReLU(),
             nn.Dropout(dropout)
         )
-        # oncatenate
+        # concatenate
         self.fusion = nn.Sequential(
             nn.Linear(hidden_dim + hidden_dim // 2, hidden_dim),
             nn.ReLU(),
